@@ -1,2 +1,4 @@
 # Lecture-Statistical-Physics
-rewrite the lecture of statistical physics by LaTeX
+## 分工
+
+## 文档目录规范

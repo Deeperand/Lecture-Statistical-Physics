@@ -1,0 +1,98 @@
+% global setting
+    \ctexset{autoindent = 0em} % cancel autoindent
+
+    % keep appropriate distance while there being a large equation in a row
+    \setlength\lineskiplimit{0.3em} 
+    \setlength\lineskip{0.3em}
+
+    % change the symbol size in math mode
+    \DeclareMathSizes{10.54}{10.54}{5.27}{3.16}
+
+
+% other packages
+    \usepackage{import}
+    \usepackage{xifthen}
+    \usepackage{pdfpages}
+    \usepackage{transparent}
+
+    % package in drawing
+    \usepackage{tikz}
+    \usetikzlibrary{optics} % use library: optics (made the draw of optic much easier)
+    \usetikzlibrary{arrows.meta} % more type of arrow
+    \usetikzlibrary{intersections} % calcuate intersection
+    \usetikzlibrary{calc}
+
+    % package using in text mode
+    \usepackage[a4paper, left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
+    \usepackage{listings}
+    \usepackage{xcolor}
+    \usepackage{enumitem}
+    \usepackage{graphicx}
+    \usepackage{float}
+    \usepackage{booktabs}
+    \usepackage{caption} % control the caption format of picture
+    \usepackage{longtable} % auto-change-page-table
+    \usepackage{nameref} % provide command: \nameref
+    \usepackage{fontspec} % font select and set
+
+    % package using in math mode
+    \usepackage{amsmath}
+        \allowdisplaybreaks[4] % allowed multiline equation can change page
+    \usepackage{amssymb}
+    \usepackage{mathtools}
+    \usepackage{mathrsfs} % provide the font of \mathscr
+    \usepackage{tensor}
+    \usepackage{upgreek}
+    \usepackage{extarrows}
+    \usepackage{yhmath}
+    \usepackage{nccmath} % realign the equation
+    \usepackage{xfrac} % split level fractions
+    \usepackage{bbm} % hollow number
+    \usepackage{bm} % bold, but keep italic
+
+% command/environment building and renewing
+    % text
+        % env
+            % Solve: used to "proof", "solve" and so on
+            \newenvironment{Solve}
+            [1][解:]%
+            {\paragraph*{#1\\}}%
+            {\begin{flushright}$\square$\end{flushright}}
+
+    % math
+        % notation
+            \newcommand{\Dbar}{\mathrm{d} \hspace*{-0.15em}\bar{}\hspace*{0.1em}} % \mathrm{d} with bar
+            \newcommand\MaE{\mspace{2mu}\mathrm{e}\mspace{2mu}} % "Ma" is the abbreviation of "Math", "E" means natural constant "e"
+            \newcommand\MaPI{\mspace{2mu}\uppi\mspace{2mu}} % ratio of the circumference of a circle to its diameter
+
+    %set the display style of enumerate number
+    \renewcommand\theenumi{\arabic{enumi}}
+    \renewcommand\labelenumi{\theenumi).}
+    \renewcommand\theenumii{\arabic{enumii}}
+    \renewcommand\theenumiii{\Alph{enumiii}}
+    \renewcommand\theenumiv{\Roman{enumiv}}
+
+% initialize the setting
+    % avoid too large interval between picture's caption and picture
+    \captionsetup{skip = 5pt}
+
+    \setcounter{secnumdepth}{5}
+    \ctexset{
+        section/name = \S\,,
+        subsection/beforeskip = 1.3ex plus 0.4ex minus 0.08ex, % 40% of original
+        subsection/afterskip = 0.375ex plus 0.05ex, % 25% of original
+        paragraph/aftertitle = \hspace{-0.125em},
+        paragraph/aftername = \hspace{0.3em},
+        paragraph/number = \arabic{paragraph}.,
+        paragraph/beforeskip = 0.4875ex plus 0.15ex minus 0.03ex, % 15% of original
+        paragraph/afterskip = 0.15em, % 15% of original
+        paragraph/hang = false
+    }
+
+    \setlist[enumerate]{
+        itemsep = 0pt,
+        topsep = 0pt,
+        partopsep = 0pt,
+        parsep = 0pt,
+        labelsep = 0.3em,
+    }
