@@ -1,0 +1,90 @@
+(c) 微观态和宏观态联系: 宏观态通常由有限个具有确定性的宏观参量决定 (平衡态). 这里\,\textbf{有限个}\,指一个宏观态对应的微观态的数目是有限的; \,\textbf{确定性的}\,指某种平均的效果是确定的.
+\begin{itemize}
+    \item 观测量:
+        \begin{equation}
+            \overline{O} = \lim_{T \rightarrow \infty} \dfrac{1}{T} \int_{0}^{T} O(t) \,\mathrm{d} t = \lim_{T \rightarrow \infty} \dfrac{1}{T} \int_{0}^{T} O(q(t), p(t), q_0, p_0) \,\mathrm{d} t
+        \end{equation}
+        对时间的平均可以等效为对不同状态的平均, 于是:
+        \begin{equation}
+            \overline{O} = \int O(q, p) \rho(q, p) \,\mathrm{d}q\,\mathrm{d}p
+        \end{equation}
+        可以发现:
+        \begin{equation*}
+            \text{宏观态} \ll \text{微观态}
+        \end{equation*}
+        由此: 概率来源于信息缺失.
+    \item 观测量的稳定性
+        物理量 $ O $ 相对其平均值 $ \overline{O} $ 的偏离可表示为:
+        \begin{equation}
+            \Delta = O - \overline{O}
+        \end{equation}
+        该偏离的平均值满足:
+        \begin{equation}
+            \overline{\Delta} = 0
+        \end{equation}
+        亦即无法反映系统的特点. 另一方面, 偏差的平方满足:
+        \begin{equation}
+            \Delta^2 = (O - \overline{O})^2 \geq 0
+        \end{equation}
+        于是可以用平方的平均值来描述系统的稳定程度. 对均方根:
+        \begin{align}
+            \sqrt{\overline{\Delta^2}} & \equiv \sqrt{\overline{(O - \overline{O})^2}} = \sqrt{\overline{O^2 - 2O\overline{O} + \overline{O}^2}} \\
+                                       & = \sqrt{\overline{O^2} - 2 \overline{O} \overline{O} + \overline{O}^2} = \sqrt{\overline{O^2} - \overline{O}^2}
+        \end{align}
+        稳定性体现在:
+        \begin{equation}
+            \dfrac{\sqrt{\overline{\Delta^2}}}{\overline{O}} \ll 1
+        \end{equation}
+        这是由于: 若将宏观系统分为 $ N $ 个子系统 ($ N $ 可非常大), 则对相加性观测量 (大多数情况):
+        \begin{equation}
+            \overline{O} = \sum_{i = 1}^{N} \overline{O}_i \sim N
+        \end{equation}
+        对于平方误差的均方根:
+        \begin{align}
+            \sqrt{\overline{\Delta^2}} 
+            & = \sqrt{\overline{(O - \overline{O})^2}} = \sqrt{\overline{\left(\sum_{i = 1}^{N}(O_i - \overline{O}_i)\right)^2}} = \sqrt{\overline{\left(\sum_{i = 1}^{N} \Delta_i \right)^2}} \\
+            & = (\overline{\Delta_1^2} + \overline{\Delta_2^2} + \dots + \overline{\Delta_N^2} + \overline{\Delta_1\Delta_2} + \overline{\Delta_1\Delta_3} + \dots + \overline{\Delta_2\Delta_2} + \overline{\Delta_2\Delta_3} + \dots)^{\sfrac{1}{2}}
+        \end{align}
+        当 $ i \neq j $ 时, 有: 
+        \begin{equation}
+            \overline{\Delta_i \Delta_j} = \overline{\Delta_i}\overline{\Delta_j} = 0
+        \end{equation}
+        从而:
+        \begin{equation}
+            \sqrt{\overline{\Delta^2}} = \sqrt{\sum_{i = 1}^{N} \overline{\Delta_i^2}} \sim \sqrt{N}
+        \end{equation}
+        故:
+        \begin{equation}
+            \dfrac{\sqrt{\overline{\Delta^2}}}{\overline{O}} \sim \dfrac{\sqrt{N}}{N} = \dfrac{1}{\sqrt{N}} \sim 0
+        \end{equation}
+        最后一步的前提是取热力学极限:
+        \begin{equation}
+            N \rightarrow \infty
+        \end{equation}
+\end{itemize}
+
+(d) 概率问题: 处理统计物理的数学语言
+\begin{itemize}
+    \item \textbf{事件:} 在一定条件下, 某一现象的发生称为事件, 事件之间可有一定关系 (如: 互斥, 独立)
+    \item \textbf{概率:} 在给定条件下, 反复反复事件并记录下事件发生的次数, 则:
+        \begin{equation}
+            p_i = \lim_{N \rightarrow \infty} \dfrac{N_i}{N}
+        \end{equation}
+        其中 $ N_i $ 代表事件 $ i $ 发生的次数, $ N $ 代表实验的总次数. 一般地, 概率具有如下性质:
+
+        \begin{itemize}
+            \item \textbf{有界性:} $ 0 \leq p_i \leq 1 $. 其中 0 表示不发生, 1 表示必然发生.
+            \item \textbf{归一性:} 所有事件概率之和为 1, 亦即:
+                \begin{equation}
+                    \sum_{i} p_i = \lim_{N \rightarrow \infty} \dfrac{1}{N} \sum_{i} N_i = 1
+                \end{equation}
+            \item \textbf{相加性:} 对于互斥事件 $ i $, $ j $, 任何一个发生的概率为两者单独发生的概率之和:
+                \begin{equation}
+                    p_{i + j} = p_i + p_j
+                \end{equation}
+            \item \textbf{相乘性:} 对于独立事件 $ i $, $ j $, 同时发生的概率为分别发生的规律之积:
+                \begin{equation}
+                    p_{i \cdot j} = p_i \cdot p_j
+                \end{equation}
+        \end{itemize}
+\end{itemize}
